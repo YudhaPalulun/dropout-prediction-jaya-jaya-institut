@@ -77,8 +77,6 @@ Aplikasi akan terbuka di browser pada `http://localhost:8501`.
 
 ## Business Dashboard
 
-<!-- TODO: lengkapi bagian ini setelah dashboard Metabase selesai dibuat -->
-
 Dashboard **Student Performance Dashboard - Jaya Jaya Institut** menampilkan visualisasi faktor-faktor penting yang memengaruhi status siswa, di antaranya:
 
 1. Distribusi status siswa (Dropout / Enrolled / Graduate)
