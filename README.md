@@ -116,7 +116,14 @@ Model yang dibangun adalah **Random Forest Classifier** untuk klasifikasi **bine
 
 **Catatan metodologi penting:** Dataset asli memiliki 3 kategori status (Dropout, Enrolled, Graduate). Karena siswa berstatus **Enrolled** belum memiliki hasil akhir, mereka **tidak disertakan dalam proses training** — hanya 3.630 siswa berstatus Dropout/Graduate yang dipakai untuk melatih dan mengevaluasi model. Data 794 siswa Enrolled disisihkan ke `enrolled_students.csv` untuk simulasi prediksi di masa mendatang.
 
-Model mencapai **akurasi 91.7%** pada data uji, dengan precision dan recall yang seimbang pada kedua kelas.
+Model mencapai **akurasi 91.74%** pada data uji (726 siswa), dengan hasil classification report sebagai berikut:
+
+| Kelas | Precision | Recall | F1-score | Support |
+|---|---|---|---|---|
+| Graduate | 0.92 | 0.95 | 0.93 | 442 |
+| Dropout | 0.91 | 0.87 | 0.89 | 284 |
+
+Angka ini identik dengan output yang dihasilkan pada `notebook.ipynb` bagian Evaluation.
 
 **Fitur paling berpengaruh** terhadap prediksi:
 1. Jumlah mata kuliah yang lulus di semester 1 & 2
@@ -140,7 +147,7 @@ Berdasarkan analisis data dan pemodelan biner (Dropout vs Graduate) yang telah d
 2. **Status pembayaran uang kuliah** — siswa yang menunggak memiliki risiko dropout yang jauh lebih tinggi.
 3. **Kepemilikan beasiswa** — siswa penerima beasiswa memiliki kemungkinan dropout yang jauh lebih rendah.
 
-Dengan memfokuskan model hanya pada siswa yang status akhirnya sudah diketahui (Dropout/Graduate), model Random Forest yang dibangun mampu mencapai **akurasi 91.7%** — jauh lebih valid dan tidak ambigu dibanding pendekatan klasifikasi 3 kelas sebelumnya. Model ini kini siap digunakan untuk mendeteksi risiko dropout pada 794 siswa yang masih berstatus Enrolled.
+Dengan memfokuskan model hanya pada siswa yang status akhirnya sudah diketahui (Dropout/Graduate), model Random Forest yang dibangun mampu mencapai **akurasi 91.74%** (Graduate: precision 0.92, recall 0.95; Dropout: precision 0.91, recall 0.87) — jauh lebih valid dan tidak ambigu dibanding pendekatan klasifikasi 3 kelas sebelumnya. Model ini kini siap digunakan untuk mendeteksi risiko dropout pada 794 siswa yang masih berstatus Enrolled.
 
 ### Rekomendasi Action Items
 
