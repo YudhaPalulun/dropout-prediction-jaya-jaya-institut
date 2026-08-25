@@ -1,0 +1,254 @@
+{
+  "Marital_status": {
+    "type": "numeric",
+    "default": 1.0,
+    "min": 1.0,
+    "max": 6.0,
+    "is_int": true
+  },
+  "Application_mode": {
+    "type": "numeric",
+    "default": 17.0,
+    "min": 1.0,
+    "max": 57.0,
+    "is_int": true
+  },
+  "Application_order": {
+    "type": "numeric",
+    "default": 1.0,
+    "min": 0.0,
+    "max": 9.0,
+    "is_int": true
+  },
+  "Course": {
+    "type": "numeric",
+    "default": 9238.0,
+    "min": 33.0,
+    "max": 9991.0,
+    "is_int": true
+  },
+  "Daytime_evening_attendance": {
+    "type": "numeric",
+    "default": 1.0,
+    "min": 0.0,
+    "max": 1.0,
+    "is_int": true
+  },
+  "Previous_qualification": {
+    "type": "numeric",
+    "default": 1.0,
+    "min": 1.0,
+    "max": 43.0,
+    "is_int": true
+  },
+  "Previous_qualification_grade": {
+    "type": "numeric",
+    "default": 133.1,
+    "min": 95.0,
+    "max": 190.0,
+    "is_int": false
+  },
+  "Nacionality": {
+    "type": "numeric",
+    "default": 1.0,
+    "min": 1.0,
+    "max": 109.0,
+    "is_int": true
+  },
+  "Mothers_qualification": {
+    "type": "numeric",
+    "default": 19.0,
+    "min": 1.0,
+    "max": 44.0,
+    "is_int": true
+  },
+  "Fathers_qualification": {
+    "type": "numeric",
+    "default": 19.0,
+    "min": 1.0,
+    "max": 44.0,
+    "is_int": true
+  },
+  "Mothers_occupation": {
+    "type": "numeric",
+    "default": 5.0,
+    "min": 0.0,
+    "max": 194.0,
+    "is_int": true
+  },
+  "Fathers_occupation": {
+    "type": "numeric",
+    "default": 7.0,
+    "min": 0.0,
+    "max": 195.0,
+    "is_int": true
+  },
+  "Admission_grade": {
+    "type": "numeric",
+    "default": 126.1,
+    "min": 95.0,
+    "max": 190.0,
+    "is_int": false
+  },
+  "Displaced": {
+    "type": "numeric",
+    "default": 1.0,
+    "min": 0.0,
+    "max": 1.0,
+    "is_int": true
+  },
+  "Educational_special_needs": {
+    "type": "numeric",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0,
+    "is_int": true
+  },
+  "Debtor": {
+    "type": "numeric",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0,
+    "is_int": true
+  },
+  "Tuition_fees_up_to_date": {
+    "type": "numeric",
+    "default": 1.0,
+    "min": 0.0,
+    "max": 1.0,
+    "is_int": true
+  },
+  "Gender": {
+    "type": "numeric",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0,
+    "is_int": true
+  },
+  "Scholarship_holder": {
+    "type": "numeric",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0,
+    "is_int": true
+  },
+  "Age_at_enrollment": {
+    "type": "numeric",
+    "default": 20.0,
+    "min": 17.0,
+    "max": 70.0,
+    "is_int": true
+  },
+  "International": {
+    "type": "numeric",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 1.0,
+    "is_int": true
+  },
+  "Curricular_units_1st_sem_credited": {
+    "type": "numeric",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 20.0,
+    "is_int": true
+  },
+  "Curricular_units_1st_sem_enrolled": {
+    "type": "numeric",
+    "default": 6.0,
+    "min": 0.0,
+    "max": 26.0,
+    "is_int": true
+  },
+  "Curricular_units_1st_sem_evaluations": {
+    "type": "numeric",
+    "default": 8.0,
+    "min": 0.0,
+    "max": 45.0,
+    "is_int": true
+  },
+  "Curricular_units_1st_sem_approved": {
+    "type": "numeric",
+    "default": 5.0,
+    "min": 0.0,
+    "max": 26.0,
+    "is_int": true
+  },
+  "Curricular_units_1st_sem_grade": {
+    "type": "numeric",
+    "default": 12.285714285714286,
+    "min": 0.0,
+    "max": 18.875,
+    "is_int": false
+  },
+  "Curricular_units_1st_sem_without_evaluations": {
+    "type": "numeric",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 12.0,
+    "is_int": true
+  },
+  "Curricular_units_2nd_sem_credited": {
+    "type": "numeric",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 19.0,
+    "is_int": true
+  },
+  "Curricular_units_2nd_sem_enrolled": {
+    "type": "numeric",
+    "default": 6.0,
+    "min": 0.0,
+    "max": 23.0,
+    "is_int": true
+  },
+  "Curricular_units_2nd_sem_evaluations": {
+    "type": "numeric",
+    "default": 8.0,
+    "min": 0.0,
+    "max": 33.0,
+    "is_int": true
+  },
+  "Curricular_units_2nd_sem_approved": {
+    "type": "numeric",
+    "default": 5.0,
+    "min": 0.0,
+    "max": 20.0,
+    "is_int": true
+  },
+  "Curricular_units_2nd_sem_grade": {
+    "type": "numeric",
+    "default": 12.2,
+    "min": 0.0,
+    "max": 18.571428571428573,
+    "is_int": false
+  },
+  "Curricular_units_2nd_sem_without_evaluations": {
+    "type": "numeric",
+    "default": 0.0,
+    "min": 0.0,
+    "max": 12.0,
+    "is_int": true
+  },
+  "Unemployment_rate": {
+    "type": "numeric",
+    "default": 11.1,
+    "min": 7.6,
+    "max": 16.2,
+    "is_int": false
+  },
+  "Inflation_rate": {
+    "type": "numeric",
+    "default": 1.4,
+    "min": -0.8,
+    "max": 3.7,
+    "is_int": false
+  },
+  "GDP": {
+    "type": "numeric",
+    "default": 0.32,
+    "min": -4.06,
+    "max": 3.51,
+    "is_int": false
+  }
+}
