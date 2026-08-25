@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres:16
+    container_name: hr_db
+    environment:
+      POSTGRES_USER: hr_user
+      POSTGRES_PASSWORD: hr_pass
+      POSTGRES_DB: hr_attrition
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  metabase:
+    image: metabase/metabase:v0.63.14.2
+    container_name: metabase
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+volumes:
+  pg_data:

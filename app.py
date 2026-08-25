@@ -12,19 +12,20 @@ st.set_page_config(page_title="Prediksi Dropout Mahasiswa - Jaya Jaya Institut",
 @st.cache_resource
 def load_artifacts():
     model = joblib.load(os.path.join(MODEL_DIR, "model.joblib"))
-    label_encoder = joblib.load(os.path.join(MODEL_DIR, "label_encoder.joblib"))
     feature_columns = joblib.load(os.path.join(MODEL_DIR, "feature_columns.joblib"))
     with open(os.path.join(MODEL_DIR, "defaults.json")) as f:
         defaults = json.load(f)
-    return model, label_encoder, feature_columns, defaults
+    return model, feature_columns, defaults
 
-model, label_encoder, feature_columns, defaults = load_artifacts()
+model, feature_columns, defaults = load_artifacts()
 
-st.title("🎓 Prediksi Status Mahasiswa")
+st.title("🎓 Prediksi Risiko Dropout Mahasiswa")
 st.markdown(
-    "Aplikasi ini membantu **Jaya Jaya Institut** memprediksi kemungkinan status seorang "
-    "mahasiswa (**Dropout**, **Enrolled**, atau **Graduate**) berdasarkan data akademik, "
-    "finansial, dan demografis. Isi data pada form di bawah ini, lalu klik **Prediksi**."
+    "Aplikasi ini membantu **Jaya Jaya Institut** memprediksi kemungkinan seorang mahasiswa akan "
+    "**Dropout** atau berhasil **Graduate**, berdasarkan data akademik, finansial, dan demografis. "
+    "Model dilatih khusus pada data mahasiswa yang statusnya sudah final (Dropout/Graduate); "
+    "cocok digunakan untuk mahasiswa yang masih aktif kuliah guna deteksi dini risiko dropout. "
+    "Isi data pada form di bawah, lalu klik **Prediksi**."
 )
 
 st.divider()
@@ -88,18 +89,11 @@ input_data["Debtor"] = 1 if debtor == "Ya" else 0
 
 with st.expander("⚙️ Opsi lanjutan (fitur demografis & akademik lainnya)"):
     st.caption("Nilai default sudah diisi otomatis dari rata-rata dataset. Ubah jika perlu.")
-    advanced_cols = [c for c in feature_columns if c not in input_data or c in [
-        "Marital_status", "Application_mode", "Application_order", "Course",
-        "Daytime_evening_attendance", "Previous_qualification",
-        "Previous_qualification_grade", "Nacionality",
-        "Mothers_qualification", "Fathers_qualification",
-        "Mothers_occupation", "Fathers_occupation", "Displaced",
-        "Educational_special_needs", "Gender", "International",
-        "Curricular_units_1st_sem_credited", "Curricular_units_1st_sem_enrolled",
-        "Curricular_units_1st_sem_evaluations", "Curricular_units_1st_sem_without_evaluations",
-        "Curricular_units_2nd_sem_credited", "Curricular_units_2nd_sem_enrolled",
-        "Curricular_units_2nd_sem_evaluations", "Curricular_units_2nd_sem_without_evaluations",
-        "Unemployment_rate", "Inflation_rate", "GDP"
+    advanced_cols = [c for c in feature_columns if c not in [
+        "Curricular_units_1st_sem_approved", "Curricular_units_1st_sem_grade",
+        "Curricular_units_2nd_sem_approved", "Curricular_units_2nd_sem_grade",
+        "Admission_grade", "Age_at_enrollment", "Tuition_fees_up_to_date",
+        "Scholarship_holder", "Debtor"
     ]]
     n_cols = 3
     cols = st.columns(n_cols)
@@ -119,28 +113,26 @@ st.divider()
 if st.button("🔮 Prediksi Status Mahasiswa", type="primary", use_container_width=True):
     input_df = pd.DataFrame([input_data])[feature_columns]
     pred = model.predict(input_df)[0]
-    proba = model.predict_proba(input_df)[0]
-    pred_label = label_encoder.inverse_transform([pred])[0]
+    proba = model.predict_proba(input_df)[0]  # index 0 = Graduate, index 1 = Dropout
 
     st.subheader("Hasil Prediksi")
-    if pred_label == "Dropout":
-        st.error(f"⚠️ Prediksi Status: **{pred_label}**")
-    elif pred_label == "Enrolled":
-        st.warning(f"📘 Prediksi Status: **{pred_label}**")
-    else:
-        st.success(f"🎉 Prediksi Status: **{pred_label}**")
-
-    proba_df = pd.DataFrame({
-        "Status": label_encoder.classes_,
-        "Probabilitas": proba
-    }).sort_values("Probabilitas", ascending=False)
-    st.bar_chart(proba_df.set_index("Status"))
-
-    if pred_label == "Dropout":
+    if pred == 1:
+        st.error(f"⚠️ Prediksi: Berisiko **Dropout** (probabilitas {proba[1]*100:.1f}%)")
         st.info(
             "💡 **Rekomendasi:** Mahasiswa ini disarankan mendapat bimbingan akademik "
             "tambahan dan/atau bantuan finansial sesegera mungkin."
         )
+    else:
+        st.success(f"🎉 Prediksi: Kemungkinan **Graduate** (probabilitas {proba[0]*100:.1f}%)")
+
+    proba_df = pd.DataFrame({
+        "Status": ["Graduate", "Dropout"],
+        "Probabilitas": [proba[0], proba[1]]
+    })
+    st.bar_chart(proba_df.set_index("Status"))
 
 st.divider()
-st.caption("Prototype ini dibuat untuk keperluan submission Proyek Akhir Dicoding - Belajar Penerapan Data Science.")
+st.caption(
+    "Model dilatih pada data mahasiswa berstatus final (Dropout/Graduate). "
+    "Prototype ini dibuat untuk keperluan submission Proyek Akhir Dicoding - Belajar Penerapan Data Science."
+)

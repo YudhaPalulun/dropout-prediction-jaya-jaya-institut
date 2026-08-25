@@ -17,12 +17,12 @@
     "type": "numeric",
     "default": 1.0,
     "min": 0.0,
-    "max": 9.0,
+    "max": 6.0,
     "is_int": true
   },
   "Course": {
     "type": "numeric",
-    "default": 9238.0,
+    "default": 9254.0,
     "min": 33.0,
     "max": 9991.0,
     "is_int": true
@@ -85,7 +85,7 @@
   },
   "Admission_grade": {
     "type": "numeric",
-    "default": 126.1,
+    "default": 126.5,
     "min": 95.0,
     "max": 190.0,
     "is_int": false
@@ -176,7 +176,7 @@
   },
   "Curricular_units_1st_sem_grade": {
     "type": "numeric",
-    "default": 12.285714285714286,
+    "default": 12.34142857142857,
     "min": 0.0,
     "max": 18.875,
     "is_int": false
@@ -218,7 +218,7 @@
   },
   "Curricular_units_2nd_sem_grade": {
     "type": "numeric",
-    "default": 12.2,
+    "default": 12.333333333333334,
     "min": 0.0,
     "max": 18.571428571428573,
     "is_int": false
