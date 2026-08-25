@@ -42,14 +42,19 @@ Proyek ini dikembangkan menggunakan **Python 3.10.11**. Disarankan menggunakan v
      ```bash
      source venv/bin/activate
      ```
-3. Install seluruh dependencies yang dibutuhkan:
+3. Install dependencies yang dibutuhkan untuk menjalankan prototype aplikasi:
    ```bash
    pip install -r requirements.txt
    ```
+   `requirements.txt` sengaja hanya berisi library inti (pandas, scikit-learn, joblib, streamlit) agar proses deployment ke Streamlit Community Cloud lebih ringan dan stabil.
 
 **Menjalankan notebook (EDA & modeling):**
 
-Buka `notebook.ipynb` menggunakan Jupyter Notebook, JupyterLab, atau VS Code (dengan ekstensi Jupyter), lalu jalankan seluruh cell (Run All) untuk melihat proses eksplorasi data, pembuatan model, dan evaluasinya secara lengkap. Model hasil training akan tersimpan otomatis ke folder `model/`.
+Untuk membuka dan menjalankan ulang `notebook.ipynb` secara lokal, install tambahan library berikut:
+```bash
+pip install matplotlib seaborn jupyter ipykernel
+```
+Lalu buka `notebook.ipynb` menggunakan Jupyter Notebook, JupyterLab, atau VS Code (dengan ekstensi Jupyter), dan jalankan seluruh cell (Run All) untuk melihat proses eksplorasi data, pembuatan model, dan evaluasinya secara lengkap. Model hasil training akan tersimpan otomatis ke folder `model/`.
 
 **Menjalankan prototype Streamlit secara lokal:**
 
