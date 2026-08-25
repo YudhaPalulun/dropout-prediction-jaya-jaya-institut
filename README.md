@@ -105,8 +105,7 @@ Model yang dibangun adalah **Random Forest Classifier** untuk memprediksi status
 Model ini di-deploy dalam bentuk prototype aplikasi menggunakan **Streamlit**, di mana pengguna (staf akademik) dapat memasukkan data seorang siswa dan langsung mendapatkan prediksi status beserta probabilitasnya.
 
 **Link prototype (Streamlit Community Cloud):**
-<!-- TODO: isi dengan link setelah deployment ke Streamlit Community Cloud selesai -->
-`https://<isi-dengan-link-streamlit-mu>.streamlit.app`
+https://dropout-prediction-jaya-jaya-institut-4ghauvjuemiyktrbshbpse.streamlit.app/
 
 ---
 
